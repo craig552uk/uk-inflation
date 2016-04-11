@@ -1,7 +1,7 @@
 {
   "name": "uk-inflation",
-  "version": "1.0.2",
-  "description": "Tools for inflation-adjusting UK prices from 1750 to present day",
+  "version": "1.0.3",
+  "description": "Tools for inflation-adjusting UK prices from 1750 to 2015",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
