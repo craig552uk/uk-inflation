@@ -1,6 +1,6 @@
 {
   "name": "uk-inflation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tools for inflation-adjusting UK prices from 1750 to present day",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,9 @@
     "uk"
   ],
   "author": "Craig Russell <craig@craig-russell.co.uk>",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type":"git", 
+    "url":"https://github.com/craig552uk/uk-inflation.git"
+  }
 }
