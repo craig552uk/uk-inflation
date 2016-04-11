@@ -1,0 +1,16 @@
+{
+  "name": "uk-inflation",
+  "version": "1.0.0",
+  "description": "Tools for inflation-adjusting UK prices from 1750 to present day",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecomomics",
+    "inflation",
+    "uk"
+  ],
+  "author": "Craig Russell <craig@craig-russell.co.uk>",
+  "license": "ISC"
+}
