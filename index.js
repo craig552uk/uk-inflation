@@ -2,6 +2,15 @@
 exports.data = data = require('./data.json');
 
 /**
+ * Returns data for a given year or throws error
+ */
+function getYearData(year){
+    year = (year instanceof Date) ? year.getFullYear() : year;
+    if (data[year] === undefined) throw Error("No UK inflation data available for the year "+year);
+    return data[year];
+}
+
+/**
  * Return inflation-adjusted cost from year to year
  *    cost:     [number]             The cost to be adjusted
  *    year_from [number/string/date] The year to be adjusted from
@@ -14,14 +23,20 @@ exports.data = data = require('./data.json');
  *
  */
 exports.adjustCost = function(cost, year_from, year_to){
-    year_from = (year_from instanceof Date) ? year_from.getFullYear() : year_from;
-    year_to   = (year_to   instanceof Date) ? year_to.getFullYear()   : year_to;
-
-    var cpi_from = data[year_from] && data[year_from].CPI;
-    var cpi_to   = data[year_to]   && data[year_to].CPI;
-
-    if(cpi_from === undefined) throw Error("No UK inflation data available for the year "+year_from);
-    if(cpi_to   === undefined) throw Error("No UK inflation data available for the year "+year_to);
-
+    var cpi_from = getYearData(year_from).cpi;
+    var cpi_to   = getYearData(year_to).cpi;
     return cost * (cpi_to / cpi_from);
+}
+
+/**
+ * Returns average inflation between two years
+ *    year_from [number/string/date] The year to be adjusted from
+ *    year_to   [number/string/date] The year to be adjusted to
+ *
+ * Throws error if data is not available for either of the specified years
+ */
+exports.averageInflation = function(year_from, year_to){
+    var cpi_from = getYearData(year_from).cpi;
+    var cpi_to   = getYearData(year_to).cpi;
+    return (Math.pow(cpi_to/cpi_from, 0.1) -1) * 100;
 }
