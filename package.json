@@ -1,6 +1,6 @@
 {
   "name": "uk-inflation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools for inflation-adjusting UK prices from 1750 to present day",
   "main": "index.js",
   "scripts": {

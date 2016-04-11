@@ -10,12 +10,23 @@ Refer to the Bank of England site for the [methods used to adjust prices against
 Usage
 -----
 
+Require the module the usual way
+```javascript
+> var ukinflation = require('ukinflation');
+```
+
 To find out what goods and services costing £23.60 in 1975 would have cost in 1985:
 
 ```javascript
-> var ukinflation = require('ukinflation');
 > ukinflation.adjustCost(23.60, 1975, 1985);
 65.33768545994066
+```
+
+To get the average inflation between two years:
+
+```javascript
+> ukinflation.averageInflation(1975, 1985)
+10.719769831985682
 ```
 
 You can also pass in Date objects if it's more convenient:
